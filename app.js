@@ -4,7 +4,7 @@ const express = require('express');
 const socketIO = require('socket.io');
 const http = require('http');
 const fs = require('fs');
-
+const port = process.env.PORT || 8000)
 const app = express();
 const server = http.createServer(app);
 const io = socketIO(server);
@@ -209,12 +209,14 @@ io.on('connection', function(socket){
 		socket.emit('message', 'QR Code Received, Silahkan Scan');
 	});
 });
-client.on('ready', () => {
-    socket.emit('message', 'Whatsapp is Ready...');
+
+  client.on('ready', () => {
+    socket.emit('ready', 'Whatsapp is ready!');
+    socket.emit('message', 'Whatsapp is ready!');
 });
 
 });
 
-server.listen(8000, function() {
-	console.log('App running on *:' + 8000);
+server.listen(port, function() {
+	console.log('App running on *:' + port);
 });
