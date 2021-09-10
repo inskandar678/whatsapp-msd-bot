@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "whatsapp apy by ronald",
   "main": "app.js",
-  "start": "nodemon app.js",
+   "scripts": {
+    "start": "node app.js",
+    "start:dev": "nodemon app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
