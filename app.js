@@ -1,49 +1,57 @@
-const { Client } = require('whatsapp-web.js');
-const qrcode = require('qrcode');
+const { Client, MessageMedia } = require('whatsapp-web.js');
 const express = require('express');
+const { body, validationResult } = require('express-validator');
 const socketIO = require('socket.io');
+const qrcode = require('qrcode');
 const http = require('http');
 const fs = require('fs');
+const { phoneNumberFormatter } = require('./helpers/formatter');
+const fileUpload = require('express-fileupload');
+const axios = require('axios');
+const mime = require('mime-types');
+
 const port = process.env.PORT || 8000;
+
 const app = express();
 const server = http.createServer(app);
 const io = socketIO(server);
 
-const SESSION_FILE_PATH = './admin-session.json';
+app.use(express.json());
+app.use(express.urlencoded({
+  extended: true
+}));
+app.use(fileUpload({
+  debug: true
+}));
+
+const SESSION_FILE_PATH = './whatsapp-session.json';
 let sessionCfg;
 if (fs.existsSync(SESSION_FILE_PATH)) {
-    sessionCfg = require(SESSION_FILE_PATH);
+  sessionCfg = require(SESSION_FILE_PATH);
 }
 
-app.get('/',(req, res) => {
-	res.sendFile('index.html', { root: __dirname});
-	
+app.get('/', (req, res) => {
+  res.sendFile('index.html', {
+    root: __dirname
+  });
 });
 
-const client = new Client({ puppeteer: { headless: true }, session: sessionCfg });
-
-client.on('qr',(qr) => {
-    console.log('QR RECEIVED', qr);
-	qrcode.generate(qr, {small: true});
-});
-
-client.on('authenticated', (session) => {
-    console.log('AUTHENTICATED', session);
-    sessionCfg=session;
-    fs.writeFile(SESSION_FILE_PATH, JSON.stringify(session), function (err) {
-        if (err) {
-            console.error(err);
-        }
-    });
-});
-
-client.on('ready', () => {
-    console.log('Client is ready!');
-});
-
-
-client.on('message', message => {
-	console.log(message.body);
+const client = new Client({
+  restartOnAuthFail: true,
+  puppeteer: {
+    headless: true,
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-dev-shm-usage',
+      '--disable-accelerated-2d-canvas',
+      '--no-first-run',
+      '--no-zygote',
+      '--single-process', // <- this one doesn't works in Windows
+      '--disable-gpu'
+    ],
+  },
+  session: sessionCfg
 });
 
 //pesan//
