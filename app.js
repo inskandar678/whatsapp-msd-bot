@@ -204,11 +204,11 @@ client.on('message', message => { //MALAM//
 		message.reply('Selamat malam');
 		client.sendMessage(message.from, 'ada yang bisa kami bantu?');	
 	}else
-		if(message.body.includes('Selamat mMalam')) {
+		if(message.body.includes('Selamat malam')) {
 		message.reply('Selamat malam');
 		client.sendMessage(message.from, 'ada yang bisa kami bantu?');
 	}else
-		if(message.body === 'sre') {
+		if(message.body === 'mlm') {
 		message.reply('Selamat malam');
 		client.sendMessage(message.from, 'ada yang bisa kami bantu?');	
 		}	
@@ -264,8 +264,24 @@ client.on('message', message => { //LIST HARGA RUBBER//
 		message.reply("  _*List Harga Rubber Matsui*_ \n - Matsui BR MJW White 1KG@110K \n - Matsui SW-W 0116 Super White 1KG@120K \n - Matsui BR MJB Clear 1KG@110K \n - Matsui Discharge 301 White/DW3 1KG@130K \n - Matsui Discharge 301 Clear/DC 1KG@130K \n - Matsui MJM Matt/Colour 1KG@110K \n - Matsui Strecth Matt/Colour 70 1KG@150K \n - Matsui Strecth White 701 1KG@150K \n - Matsui Strecth Clear 701 1KG@150K  \n\n *Untuk Cek harga Rubber Lucas ketik 'LRubbeR'*");
 		}else
 		if(message.body === 'LRubbeR') {
-		message.reply("  _*List Harga Rubber Lucas*_ \n - Matsui BR MJW White 1KG@110K \n - Matsui SW-W 0116 Super White 1KG@120K \n - Matsui BR MJB Clear 1KG@110K \n - Matsui Discharge 301 White/DW3 1KG@130K \n - Matsui Discharge 301 Clear/DC 1KG@130K \n - Matsui MJM Matt/Colour 1KG@110K \n - Matsui Strecth Matt/Colour 70 1KG@150K \n - Matsui Strecth White 701 1KG@150K \n - Matsui Strecth Clear 701 1KG@150K");
+		message.reply("  _*List Harga Rubber Lucas*_ \n - Rubber Lucas CSC 5000/Colour 1KG@105K \n - Rubber Lucas CSC 5000/White 1KG@105K \n - Rubber Lucas CSC 5000/Clear 1KG@105K  \n\n *Untuk Cek harga Discharge Primus CDT ketik 'PDischarGE'*");
+		}else
+		if(message.body === 'PDischarGE') {
+		message.reply("  _*List Harga Discharge Primus*_ \n - Discharge Primus Colour CDT 1KG@120K \n - Discharge Primus White CDW 1KG@120K ");
 		
+	}	
+});
+//End OF list Harga RUBBER//
+
+client.on('message', message => { //LIST HARGA PLASTISOL//
+	if(message.body.includes("Plastisol")) {
+		message.reply("Untuk cek harga Plastisol ketik 'PLasTisol'");
+	}else
+		if(message.body.includes("plastisol")) {
+		message.reply("Untuk cek harga Plastisol ketik 'PLasTisol'");	
+	}else
+		if(message.body === 'PLasTisol') {
+		message.reply("  _*List Harga Plastisol Eco*_ \n - PS. Eco Black 1KG@85K \n - PS. Eco Brown 1KG@120K \n - PS. Eco Clear 1KG@120K \n - PS. Eco Clear HD 1KG@150K \n - PS. Eco Gold 1KG@190K \n - PS. Eco Green 1KG@110K \n - PS. Eco Green Flo 1KG@150K \n - PS. Eco Magenta Flo 1KG@150K \n - PS. Eco Orange Flo 1KG@150K \n - PS. Eco Orange 1KG@110K \n - PS. Eco Pink Flo 1KG@150K \n - PS. Eco Red 1KG@110K \n - PS. Eco Silver 1KG@180K \n - PS. Eco Violet 1KG@120K \n - PS. Eco White 1KG@85K \n - PS. Eco Yellow 1KG@95K \n - PS. Eco Yellow Flo 1KG@150K \n - PS. Eco Blue 1KG@100K \n - PS. Eco Blue FLo 500g@75K \n -  \n\n *Untuk Cek harga Plastisol Unimate ketik 'UPLasTisol'*");		
 	}	
 });
 
