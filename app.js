@@ -250,6 +250,66 @@ client.on('message', message => { //HALO//
 	}
 });
 
+client.on('message', message => { //LIST HARGA RUBBER//
+	if(message.body.includes("Rubber")) {
+		message.reply("Untuk cek harga Rubber ketik 'RUbbeR'");
+	}else
+		if(message.body.includes("rubber")) {
+		message.reply("Untuk cek harga Rubber ketik 'RUbbeR'");	
+	}else
+		if(message.body === 'RUbbeR') {
+		message.reply("  _*List Harga Rubber*_ \n - Rubber Khanza Doff White 1KG@65K \n - Rubber Khanza Doff Colour 1KG@65K \n - Rubber Khanza Eco White 1KG@60K \n - Rubber Khanza Eco Colour 1KG@60K \n - Rubber Khanza Eco Clear 1KG@60K \n - Rubber Khanza Glossy White 1KG@58K \n - Rubber Khanza Glossy Colour 1KG@58K \n - Rubber Khanza Gold 1KG@120K \n - Rubber Khanza Silver 1KG@110K \n - Rubber Unita White (U/goddie bag) 1KG@40K \n - Rubber Unita Colour (U/goodie bag) 1KG@40K \n - Rubber Unita Super White (U/Kaos ) 1KG@70K \n - Rubber Unita Colour (U/Kaos) 1KG@68K \n\n *Untuk Cek harga Rubber Matsui ketik 'MRubbeR'*");
+	}else
+		if(message.body === 'MRubbeR') {
+		message.reply("  _*List Harga Rubber Matsui*_ \n - Matsui BR MJW White 1KG@110K \n - Matsui SW-W 0116 Super White 1KG@120K \n - Matsui BR MJB Clear 1KG@110K \n - Matsui Discharge 301 White/DW3 1KG@130K \n - Matsui Discharge 301 Clear/DC 1KG@130K \n - Matsui MJM Matt/Colour 1KG@110K \n - Matsui Strecth Matt/Colour 70 1KG@150K \n - Matsui Strecth White 701 1KG@150K \n - Matsui Strecth Clear 701 1KG@150K  \n\n *Untuk Cek harga Rubber Lucas ketik 'LRubbeR'*");
+		}else
+		if(message.body === 'LRubbeR') {
+		message.reply("  _*List Harga Rubber Lucas*_ \n - Matsui BR MJW White 1KG@110K \n - Matsui SW-W 0116 Super White 1KG@120K \n - Matsui BR MJB Clear 1KG@110K \n - Matsui Discharge 301 White/DW3 1KG@130K \n - Matsui Discharge 301 Clear/DC 1KG@130K \n - Matsui MJM Matt/Colour 1KG@110K \n - Matsui Strecth Matt/Colour 70 1KG@150K \n - Matsui Strecth White 701 1KG@150K \n - Matsui Strecth Clear 701 1KG@150K");
+		
+	}	
+});
+
+// simulates typing in the chat
+client.on('message', async message => {   			
+    if(message.body.includes("?")) {
+        const chat = await message.getChat('');
+        // simulates typing in the chat
+        chat.sendStateTyping();
+       } else if(message.body.includes("berapa")) {
+        const chat = await message.getChat('');
+		chat.sendStateTyping();
+       } else if(message.body.includes("Berapa")) {
+        const chat = await message.getChat('');
+		chat.sendStateTyping();	
+       } else if(message.body.includes("Harga")) {
+        const chat = await message.getChat('');
+		chat.sendStateTyping();	
+       } else if(message.body.includes("harga")) {
+        const chat = await message.getChat('');
+		chat.sendStateTyping();	
+       } else if(message.body.includes("Dimana")) {
+        const chat = await message.getChat('');
+		chat.sendStateTyping();	
+       } else if(message.body.includes("mana")) {
+        const chat = await message.getChat('');
+		chat.sendStateTyping();		
+       } else if(message.body.includes("dimana")) {
+        const chat = await message.getChat('');
+		chat.sendStateTyping();	
+		
+		} else if (message.body === 'p') {
+        const chat = await message.getChat('');
+		chat.clearState();
+		} else if (message.body === 'P') {
+        const chat = await message.getChat('');
+		chat.clearState();
+		} else if (message.body === 'halo') {
+        const chat = await message.getChat('');
+		chat.clearState();
+	}
+	});
+	// simulates typing in the chat
+
 //end of pesan//
 
 
