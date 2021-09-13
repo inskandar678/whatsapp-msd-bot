@@ -2,3 +2,5 @@ node_modules
 whatsapp-session*.json
 package-lock.json
 downloaded-media/
+app-multiple-device.js
+index-multiple-device.html
